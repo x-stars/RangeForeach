@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>RangeForeach</RootNamespace>
+    <TargetFrameworks>net461;net472;netcoreapp3.1;net6.0</TargetFrameworks>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>XstarS</Authors>
+    <Company>XstarS</Company>
+    <Version>0.1.0</Version>
+    <Product>C# Range-Foreach Syntax</Product>
+    <Description>$(Product) Benchmarks</Description>
+    <Copyright>Copyright © $(Company) 2022</Copyright>
+    <AssemblyTitle>$(Description)</AssemblyTitle>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\RangeForeach\**\*.cs"
+             Exclude="..\RangeForeach\bin\**\*.cs;
+                      ..\RangeForeach\obj\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
+  </ItemGroup>
+
+</Project>
