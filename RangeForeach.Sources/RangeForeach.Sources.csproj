@@ -15,18 +15,17 @@
     <Company>XstarS</Company>
     <Version>0.1.0</Version>
     <Product>C# Range-Foreach Syntax</Product>
-    <Description>$(Product) Sources</Description>
+    <AssemblyTitle>$(Product) Sources</AssemblyTitle>
     <Copyright>Copyright © $(Company) 2022</Copyright>
-    <AssemblyTitle>$(Description)</AssemblyTitle>
   </PropertyGroup>
 
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>$(AssemblyName)</PackageId>
-    <PackageVersion>$(Version)</PackageVersion>
+    <PackageVersion>$(Version)-desc</PackageVersion>
+    <Description>Provides the range-foreach syntax for C# 9.0 or higher.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/x-stars/RangeForeach</PackageProjectUrl>
-    <PackageIconUrl></PackageIconUrl>
     <RepositoryUrl>https://github.com/x-stars/RangeForeach</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>csharp range-foreach syntax source</PackageTags>

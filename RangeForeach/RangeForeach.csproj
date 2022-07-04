@@ -16,9 +16,8 @@
     <Company>XstarS</Company>
     <Version>0.1.0</Version>
     <Product>C# Range-Foreach Syntax</Product>
-    <Description>$(Product) Library</Description>
+    <AssemblyTitle>$(Product) Library</AssemblyTitle>
     <Copyright>Copyright © $(Company) 2022</Copyright>
-    <AssemblyTitle>$(Description)</AssemblyTitle>
   </PropertyGroup>
 
   <PropertyGroup>
