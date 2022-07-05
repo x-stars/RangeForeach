@@ -13,7 +13,7 @@
   <PropertyGroup>
     <Authors>XstarS</Authors>
     <Company>XstarS</Company>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Product>C# Range-Foreach Syntax</Product>
     <AssemblyTitle>$(Product) Sources</AssemblyTitle>
     <Copyright>Copyright © $(Company) 2022</Copyright>
@@ -22,7 +22,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>$(AssemblyName)</PackageId>
-    <PackageVersion>$(Version).1</PackageVersion>
+    <PackageVersion>$(Version)</PackageVersion>
     <Description>Provides the range-foreach syntax for C# 9.0 or higher.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/x-stars/RangeForeach</PackageProjectUrl>
