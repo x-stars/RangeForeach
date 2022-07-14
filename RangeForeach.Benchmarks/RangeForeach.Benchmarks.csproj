@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <RootNamespace>RangeForeach</RootNamespace>
     <TargetFrameworks>net461;net472;netcoreapp3.1;net6.0</TargetFrameworks>
+    <RootNamespace>RangeForeach</RootNamespace>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
