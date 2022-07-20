@@ -12,7 +12,7 @@ Supported frameworks:
 
 Reference source files or the NuGet package to write foreach-loops like this:
 
-``` C#
+``` CSharp
 foreach (var index in 0..100)
 {
     // loop body...
@@ -21,7 +21,7 @@ foreach (var index in 0..100)
 
 which is equivalent to the legacy for-loop below:
 
-``` C#
+``` CSharp
 for (int index = 0; index < 100; index++)
 {
     // loop body...
@@ -34,16 +34,16 @@ for (int index = 0; index < 100; index++)
 
 If `STEPPED_RANGE` is defined, this syntax can also be used:
 
-``` C#
+``` CSharp
 foreach (var index in (99..^1).Step(-2))
 {
     // loop body...
 }
 ```
 
-Which is equivalent to the legacy for-loop below:
+which is equivalent to the legacy for-loop below:
 
-``` C#
+``` CSharp
 for (int index = 99; index >= 0; index -= 2)
 {
     // loop body...
