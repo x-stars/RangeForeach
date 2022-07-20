@@ -2,6 +2,19 @@
 // This file is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+// Provides the range-foreach syntax for C# 9.0 or higher.
+// Requires: System.Index struct, System.Range struct.
+// Reference this file to write foreach-loops like this:
+//   foreach (var index in 0..100) { }
+// which is equivalent to the legacy for-loop below:
+//   for (int index = 0; index < 100; index++) { }
+// Use the `Step` method to write foreach-loops like this:
+//   foreach (var index in (99..^1).Step(-2)) { }
+// which is equivalent to the legacy for-loop below:
+//   for (int index = 99; index >= 0; index -= 2) { }
+// NOTE: Use '^' to represent negative numbers,
+//       e.g. ^100..0 (instead of -100..0).
+
 #nullable disable
 #pragma warning disable
 
@@ -45,7 +58,6 @@ internal static class RangeEnumerable
         public bool MoveNext() => ++this.CurrentIndex < this.EndIndex;
     }
 
-#if STEPPED_RANGE
     public static Stepped Step(this Range range, int step)
     {
         return new Stepped(range, step);
@@ -61,8 +73,9 @@ internal static class RangeEnumerable
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Stepped(Range range, int step)
         {
-            if (step == 0) { throw Stepped.StepOutOfRange(); }
-            this.Range = range; this.Step = step;
+            this.Range = range;
+            this.Step = (step != 0) ? step :
+                throw Stepped.StepOutOfRange();
         }
 
         public Enumerator GetEnumerator() => new Enumerator(in this);
@@ -102,7 +115,6 @@ internal static class RangeEnumerable
                 (this.CurrentIndex += this.StepValue) < this.EndIndex;
         }
     }
-#endif
 }
 
 #if !(EXCLUDE_FROM_CODE_COVERAGE_ATTRIBUTE || NETCOREAPP3_0_OR_GREATER)
