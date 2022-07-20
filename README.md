@@ -32,7 +32,7 @@ for (int index = 0; index < 100; index++)
 
 ### Stepped Syntax
 
-If `STEPPED_RANGE` is defined, this syntax can also be used:
+Use the `Step` method to write foreach-loops like this:
 
 ``` CSharp
 foreach (var index in (99..^1).Step(-2))
@@ -48,6 +48,18 @@ for (int index = 99; index >= 0; index -= 2)
 {
     // loop body...
 }
+```
+
+## Dependency Type Polyfill
+
+This syntax requires the `System.Range` type (and also the `System.Index` type).
+Considering that early frameworks do not provide this type, this project includes the polyfill source.
+
+If a third party package that includes the `System.Range` type (such as `IndexRange`, etc.) is referenced,
+define the `INDEX_RANGE` constants in your project to avoid duplicate definitions:
+
+``` XML
+<DefineConstants>INDEX_RANGE</DefineConstants>
 ```
 
 ## Performance Benchmark
