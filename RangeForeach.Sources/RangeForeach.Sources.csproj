@@ -13,7 +13,7 @@
   <PropertyGroup>
     <Authors>XstarS</Authors>
     <Company>XstarS</Company>
-    <Version>0.4.0</Version>
+    <Version>0.5.0</Version>
     <Product>C# Range-Foreach Syntax</Product>
     <AssemblyTitle>$(Product) Sources</AssemblyTitle>
     <Copyright>Copyright © $(Company) 2022</Copyright>
@@ -29,6 +29,7 @@
     <RepositoryUrl>https://github.com/x-stars/RangeForeach</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>csharp range foreach syntax source</PackageTags>
+    <DevelopmentDependency>true</DevelopmentDependency>
   </PropertyGroup>
 
   <PropertyGroup>
