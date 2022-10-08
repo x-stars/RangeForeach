@@ -74,7 +74,7 @@ namespace RangeForeach
             {
                 sum += index;
             }
-            var expected = Range(-50, 100).Sum() * 2;
+            var expected = Range(-100, 200).Sum();
             Assert.AreEqual(expected, sum);
         }
     }
