@@ -5,7 +5,6 @@
     <RootNamespace>RangeForeach</RootNamespace>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 
@@ -23,9 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\RangeForeach\**\*.cs"
-             Exclude="..\RangeForeach\bin\**\*.cs;
-                      ..\RangeForeach\obj\**\*.cs" />
+    <ProjectReference Include="..\RangeForeach\RangeForeach.csproj" />
   </ItemGroup>
 
   <ItemGroup>

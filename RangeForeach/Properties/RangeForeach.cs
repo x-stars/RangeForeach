@@ -24,18 +24,18 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
-[DebuggerNonUserCode, ExcludeFromCodeCoverage]
+//[DebuggerNonUserCode, ExcludeFromCodeCoverage]
 [EditorBrowsable(EditorBrowsableState.Never)]
 [Obsolete("This type supports the range-foreach syntax " +
           "and should not be used directly in user code.")]
-internal static class RangeEnumerable
+public static class RangeEnumerable
 {
     public static Enumerator GetEnumerator(this Range range)
     {
         return new Enumerator(in range);
     }
 
-    [DebuggerNonUserCode, ExcludeFromCodeCoverage]
+    //[DebuggerNonUserCode, ExcludeFromCodeCoverage]
     public struct Enumerator
     {
         private int CurrentIndex;
@@ -63,7 +63,7 @@ internal static class RangeEnumerable
         return new Stepped(range, step);
     }
 
-    [DebuggerNonUserCode, ExcludeFromCodeCoverage]
+    //[DebuggerNonUserCode, ExcludeFromCodeCoverage]
     public readonly struct Stepped
     {
         public readonly Range Range;
@@ -83,7 +83,7 @@ internal static class RangeEnumerable
         private static ArgumentOutOfRangeException StepOutOfRange() =>
             new ArgumentOutOfRangeException("step", "Non-zero number required.");
 
-        [DebuggerNonUserCode, ExcludeFromCodeCoverage]
+        //[DebuggerNonUserCode, ExcludeFromCodeCoverage]
         public struct Enumerator
         {
             private int CurrentIndex;

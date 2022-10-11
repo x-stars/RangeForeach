@@ -15,7 +15,7 @@ namespace System
     /// Represents a type that can be used to index a collection either from the start or the end.
     /// </summary>
     [DebuggerNonUserCode, ExcludeFromCodeCoverage]
-    internal readonly struct Index : IEquatable<Index>
+    public readonly struct Index : IEquatable<Index>
     {
         private readonly int _value;
 
@@ -139,7 +139,7 @@ namespace System
     /// Represents a range that has start and end indexes.
     /// </summary>
     [DebuggerNonUserCode, ExcludeFromCodeCoverage]
-    internal readonly struct Range : IEquatable<Range>
+    public readonly struct Range : IEquatable<Range>
     {
         /// <summary>
         /// Gets the inclusive start index of the <see cref="Range"/>.
