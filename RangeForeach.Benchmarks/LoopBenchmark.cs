@@ -1,12 +1,10 @@
-﻿using System;
-using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Attributes;
 using static System.Linq.Enumerable;
 
 namespace RangeForeach
 {
     public class LoopBenchmark
     {
-        [CLSCompliant(false)]
         [Params(1, 3, 10, 100, 1000)]
         public int LoopCount;
 
