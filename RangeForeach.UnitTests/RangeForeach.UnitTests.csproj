@@ -11,7 +11,7 @@
   <PropertyGroup>
     <Authors>XstarS</Authors>
     <Company>XstarS</Company>
-    <Version>0.5.0</Version>
+    <Version>0.6.0</Version>
     <Product>C# Range-Foreach Syntax</Product>
     <AssemblyTitle>$(Product) Unit Tests</AssemblyTitle>
     <Copyright>Copyright © $(Company) 2022</Copyright>
