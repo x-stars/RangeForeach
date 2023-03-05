@@ -1,0 +1,16 @@
+<Project>
+
+  <!--
+    Hides contentFiles of this NuGet package from user code.
+    See: https://github.com/NuGet/Home/issues/4856
+  -->
+
+  <ItemGroup>
+    <Compile Update="@(Compile)">
+      <Visible Condition="'$(NuGetItemType)'=='Compile' And
+                          '%(NuGetPackageId)'=='RangeForeach.Sources'"
+      >false</Visible>
+    </Compile>
+  </ItemGroup>
+
+</Project>
