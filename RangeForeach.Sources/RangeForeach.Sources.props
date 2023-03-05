@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <Compile Update="@(Compile)">
-      <Visible Condition="'$(NuGetItemType)'=='Compile' And
+      <Visible Condition="'%(NuGetItemType)'=='Compile' And
                           '%(NuGetPackageId)'=='RangeForeach.Sources'"
       >false</Visible>
     </Compile>
