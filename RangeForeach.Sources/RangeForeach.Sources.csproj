@@ -12,7 +12,7 @@
   <PropertyGroup>
     <Authors>XstarS</Authors>
     <Company>XstarS</Company>
-    <Version>0.8.0</Version>
+    <Version>0.8.1</Version>
     <Product>C# Range-Foreach Syntax</Product>
     <AssemblyTitle>$(Product) Sources</AssemblyTitle>
     <Copyright>Copyright © $(Company) 2022</Copyright>
