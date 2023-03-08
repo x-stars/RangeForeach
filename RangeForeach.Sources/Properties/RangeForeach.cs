@@ -44,7 +44,9 @@ internal static class __RangeEnumerable
 
         private readonly long Padding__;
 
+#if NET45_OR_GREATER || NETCOREAPP || NETSTANDARD
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
         internal Enumerator(in Range range)
         {
             this.CurrentIndex = range.Start.GetOffset(0) - 1;
@@ -54,7 +56,9 @@ internal static class __RangeEnumerable
 
         public int Current => this.CurrentIndex;
 
+#if NET45_OR_GREATER || NETCOREAPP || NETSTANDARD
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
         public bool MoveNext() => ++this.CurrentIndex < this.EndIndex;
     }
 
@@ -70,7 +74,9 @@ internal static class __RangeEnumerable
 
         public readonly int Step;
 
+#if NET45_OR_GREATER || NETCOREAPP || NETSTANDARD
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
         public Stepped(Range range, int step)
         {
             if (step == 0) { Stepped.ThrowStepOutOfRange(); }
@@ -94,7 +100,9 @@ internal static class __RangeEnumerable
 
             private readonly int StepValue;
 
+#if NET45_OR_GREATER || NETCOREAPP || NETSTANDARD
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
             internal Enumerator(in Stepped stepped)
             {
                 var range = stepped.Range;
@@ -110,7 +118,9 @@ internal static class __RangeEnumerable
 
             public int Current => this.CurrentIndex ^ this.StepSign;
 
+#if NET45_OR_GREATER || NETCOREAPP || NETSTANDARD
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
             public bool MoveNext() =>
                 (this.CurrentIndex += this.StepValue) < this.EndIndex;
         }
