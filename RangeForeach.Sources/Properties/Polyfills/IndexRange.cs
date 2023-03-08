@@ -29,7 +29,7 @@ namespace System
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Index(int value, bool fromEnd = false)
         {
-            if (value < 0) { throw Index.ValueOutOfRange(); }
+            if (value < 0) { Index.ThrowValueOutOfRange(); }
             this._value = fromEnd ? ~value : value;
         }
 
@@ -53,8 +53,11 @@ namespace System
         /// <param name="value">The index position from the start of a collection.</param>
         /// <returns>The Index value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Index FromStart(int value) =>
-            (value < 0) ? throw Index.ValueOutOfRange() : new Index(value);
+        public static Index FromStart(int value)
+        {
+            if (value < 0) { Index.ThrowValueOutOfRange(); }
+            return new Index(value);
+        }
 
         /// <summary>
         /// Creates an <see cref="Index"/> from the end of a collection at a specified index position.
@@ -62,8 +65,11 @@ namespace System
         /// <param name="value">The index value from the end of a collection.</param>
         /// <returns>The Index value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Index FromEnd(int value) =>
-            (value < 0) ? throw Index.ValueOutOfRange() : new Index(~value);
+        public static Index FromEnd(int value)
+        {
+            if (value < 0) { Index.ThrowValueOutOfRange(); }
+            return new Index(~value);
+        }
 
         /// <summary>
         /// Gets the index value.
@@ -74,8 +80,8 @@ namespace System
         /// <summary>
         /// Gets a value that indicates whether the index is from the start or the end.
         /// </summary>
-        /// <returns><see langword="true"/> if the Index is from
-        /// the end; otherwise, <see langword="false"/>.</returns>
+        /// <returns><see langword="true"/> if the Index is from the end;
+        /// otherwise, <see langword="false"/>.</returns>
         public bool IsFromEnd => this._value < 0;
 
         /// <summary>
@@ -129,10 +135,12 @@ namespace System
         public override string ToString() =>
             this.IsFromEnd ? this.ToStringFromEnd() : ((uint)this.Value).ToString();
 
-        private string ToStringFromEnd() => "^" + this.Value.ToString();
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private string ToStringFromEnd() => "^" + ((uint)this.Value).ToString();
 
-        private static ArgumentOutOfRangeException ValueOutOfRange() =>
-            new ArgumentOutOfRangeException("value", "Non-negative number required.");
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        private static void ThrowValueOutOfRange() =>
+            throw new ArgumentOutOfRangeException("value", "Non-negative number required.");
     }
 
     /// <summary>
@@ -230,10 +238,14 @@ namespace System
             int end = this.End.GetOffset(length);
             if ((uint)end > (uint)length || (uint)start > (uint)end)
             {
-                throw new ArgumentOutOfRangeException(nameof(length));
+                Range.ThrowLengthOutOfRange();
             }
             return (start, end - start);
         }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        private static void ThrowLengthOutOfRange() =>
+            throw new ArgumentOutOfRangeException("length");
 #endif
     }
 }

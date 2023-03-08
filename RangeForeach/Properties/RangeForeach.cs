@@ -16,7 +16,7 @@
 //       e.g. ^100..0 (instead of -100..0).
 
 #pragma warning disable
-#nullable disable
+#nullable enable
 
 using System;
 using System.ComponentModel;
@@ -73,15 +73,15 @@ public static class __RangeEnumerable
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Stepped(Range range, int step)
         {
-            this.Range = range;
-            this.Step = (step != 0) ? step :
-                throw Stepped.StepOutOfRange();
+            if (step == 0) { Stepped.ThrowStepOutOfRange(); }
+            this.Range = range; this.Step = step;
         }
 
         public Enumerator GetEnumerator() => new Enumerator(in this);
 
-        private static ArgumentOutOfRangeException StepOutOfRange() =>
-            new ArgumentOutOfRangeException("step", "Non-zero number required.");
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        private static void ThrowStepOutOfRange() =>
+            throw new ArgumentOutOfRangeException("step", "Non-zero number required.");
 
         //[DebuggerNonUserCode, ExcludeFromCodeCoverage]
         public struct Enumerator
