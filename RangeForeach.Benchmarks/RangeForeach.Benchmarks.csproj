@@ -25,7 +25,8 @@
   <ItemGroup>
     <Compile Include="..\RangeForeach.Sources\**\*.cs"
              Exclude="..\RangeForeach.Sources\bin\**\*.cs;
-                      ..\RangeForeach.Sources\obj\**\*.cs" />
+                      ..\RangeForeach.Sources\obj\**\*.cs;
+                      ..\RangeForeach.Sources\Properties\**\*.cs" />
   </ItemGroup>
 
   <ItemGroup>
