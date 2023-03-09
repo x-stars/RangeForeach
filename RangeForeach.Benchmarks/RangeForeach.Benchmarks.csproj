@@ -23,7 +23,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RangeForeach\RangeForeach.csproj" />
+    <Compile Include="..\RangeForeach.Sources\**\*.cs"
+             Exclude="..\RangeForeach.Sources\bin\**\*.cs;
+                      ..\RangeForeach.Sources\obj\**\*.cs" />
   </ItemGroup>
 
   <ItemGroup>
