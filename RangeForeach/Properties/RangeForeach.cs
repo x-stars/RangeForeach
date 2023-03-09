@@ -3,17 +3,19 @@
 // https://opensource.org/licenses/MIT
 
 // Provides the range-foreach syntax for C# 9.0 or higher.
-// Requires: System.Index struct, System.Range struct.
-// Reference this file to write foreach-loops like this:
+// Requires: `System.Index` struct, `System.Range` struct.
+// Reference this file to write foreach loops like this:
 //   foreach (var index in 0..100) { }
-// which is equivalent to the legacy for-loop below:
+// which is equivalent to the traditional for loop below:
 //   for (int index = 0; index < 100; index++) { }
-// Use the `Step` method to write foreach-loops like this:
+// Use the `Step` method to write foreach loops like this:
 //   foreach (var index in (99..^1).Step(-2)) { }
-// which is equivalent to the legacy for-loop below:
-//   for (int index = 99; index >= 0; index -= 2) { }
-// NOTE: Use '^' to represent negative numbers,
-//       e.g. ^100..0 (instead of -100..0).
+// which is equivalent to the traditional for loop below:
+//   for (int index = 99; index > -1; index -= 2) { }
+// TIPS: `0` can be omitted in range expressions,
+//       e.g. `..100` (equivalent to `0..100`).
+// NOTE: Use `^` to represent negative numbers,
+//       e.g. `^100..0` (instead of `-100..0`).
 
 #pragma warning disable
 #nullable enable

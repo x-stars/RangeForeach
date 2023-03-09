@@ -10,7 +10,7 @@ Supported frameworks:
 
 ## Range-Foreach Syntax
 
-Reference source files or the NuGet package to write foreach-loops like this:
+Reference source files or the NuGet package to write foreach loops like this:
 
 ``` CSharp
 foreach (var index in 0..100)
@@ -19,7 +19,7 @@ foreach (var index in 0..100)
 }
 ```
 
-which is equivalent to the legacy for-loop below:
+which is equivalent to the legacy for loop below:
 
 ``` CSharp
 for (int index = 0; index < 100; index++)
@@ -28,11 +28,13 @@ for (int index = 0; index < 100; index++)
 }
 ```
 
+**TIPS:** `0` can be omitted in range expressions, e.g. `..100` (equivalent to `0..100`).
+
 **NOTE:** Use `^` to represent negative numbers, e.g. `^100..0` (instead of `-100..0`).
 
 ### Stepped Syntax
 
-Use the `Step` method to write foreach-loops like this:
+Use the `Step` method to write foreach loops like this:
 
 ``` CSharp
 foreach (var index in (99..^1).Step(-2))
@@ -41,10 +43,10 @@ foreach (var index in (99..^1).Step(-2))
 }
 ```
 
-which is equivalent to the legacy for-loop below:
+which is equivalent to the legacy for loop below:
 
 ``` CSharp
-for (int index = 99; index >= 0; index -= 2)
+for (int index = 99; index > -1; index -= 2)
 {
     // loop body...
 }
