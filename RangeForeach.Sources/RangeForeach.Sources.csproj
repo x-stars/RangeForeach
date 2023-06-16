@@ -26,12 +26,13 @@
     <IsPackable>true</IsPackable>
     <PackageId>$(AssemblyName)</PackageId>
     <PackageVersion>$(Version)</PackageVersion>
+    <PackageTags>csharp range foreach syntax source</PackageTags>
     <Description>Provides the range-foreach syntax for C# 9.0 or higher.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/x-stars/RangeForeach</PackageProjectUrl>
+    <PackageReleaseNotes>$(PackageProjectUrl)/releases/tag/v$(PackageVersion)</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/x-stars/RangeForeach</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>csharp range foreach syntax source</PackageTags>
     <DevelopmentDependency>true</DevelopmentDependency>
   </PropertyGroup>
 
