@@ -67,36 +67,36 @@ define the `INDEX_RANGE` constant in the project file to avoid duplicate definit
 ## Performance Benchmark
 
 ``` PlainText
-BenchmarkDotNet=v0.13.1, OS=Windows 10.0.22621
+BenchmarkDotNet v0.13.10, Windows 11 (10.0.22631.2792/23H2/2023Update/SunValley3)
 AMD Ryzen 7 5800H with Radeon Graphics, 1 CPU, 16 logical and 8 physical cores
-.NET SDK=7.0.201
-  [Host]     : .NET 6.0.14 (6.0.1423.7309), X64 RyuJIT
-  DefaultJob : .NET 6.0.14 (6.0.1423.7309), X64 RyuJIT
+.NET SDK 8.0.100
+  [Host]     : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
 ```
 
-|                   Method | LoopCount |          Mean |     StdDev | Ratio | Code Size |
-|------------------------- |----------:|--------------:|-----------:|------:|----------:|
-|             `CounterFor` |         1 |     0.0447 ns |  0.0505 ns |     ? |      20 B |
-|           `RangeForeach` |         1 |     0.5299 ns |  0.0747 ns |     ? |      51 B |
-|    `SteppedRangeForeach` |         1 |     6.3169 ns |  0.0534 ns |     ? |     163 B |
-| `EnumerableRangeForeach` |         1 |    14.2896 ns |  0.5954 ns |     ? |     337 B |
-|                          |           |               |            |       |           |
-|             `CounterFor` |         3 |     0.4906 ns |  0.0216 ns |  1.00 |      20 B |
-|           `RangeForeach` |         3 |     0.7141 ns |  0.0180 ns |  1.46 |      51 B |
-|    `SteppedRangeForeach` |         3 |     6.5815 ns |  0.0166 ns | 13.44 |     163 B |
-| `EnumerableRangeForeach` |         3 |    18.9336 ns |  0.1653 ns | 38.64 |     337 B |
-|                          |           |               |            |       |           |
-|             `CounterFor` |        10 |     2.1532 ns |  0.0203 ns |  1.00 |      20 B |
-|           `RangeForeach` |        10 |     2.3766 ns |  0.0143 ns |  1.10 |      51 B |
-|    `SteppedRangeForeach` |        10 |     9.1535 ns |  0.2358 ns |  4.24 |     163 B |
-| `EnumerableRangeForeach` |        10 |    42.6260 ns |  1.1307 ns | 19.76 |     337 B |
-|                          |           |               |            |       |           |
-|             `CounterFor` |       100 |    27.2106 ns |  0.3413 ns |  1.00 |      20 B |
-|           `RangeForeach` |       100 |    28.1094 ns |  0.3127 ns |  1.03 |      51 B |
-|    `SteppedRangeForeach` |       100 |    30.6008 ns |  0.6084 ns |  1.13 |     163 B |
-| `EnumerableRangeForeach` |       100 |   319.5471 ns |  3.6090 ns | 11.75 |     337 B |
-|                          |           |               |            |       |           |
-|             `CounterFor` |      1000 |   235.5779 ns |  2.0112 ns |  1.00 |      20 B |
-|           `RangeForeach` |      1000 |   238.2080 ns |  0.7198 ns |  1.01 |      51 B |
-|    `SteppedRangeForeach` |      1000 |   244.0087 ns |  1.4962 ns |  1.04 |     163 B |
-| `EnumerableRangeForeach` |      1000 | 3,029.0070 ns | 17.3052 ns | 12.88 |     337 B |
+|                   Method | LoopCount | Mean        | StdDev    | Ratio | Code Size |
+|------------------------- |----------:|------------:|----------:|------:|----------:|
+|             `CounterFor` |         1 |   0.0037 ns | 0.0032 ns |     ? |      20 B |
+|           `RangeForeach` |         1 |   0.0026 ns | 0.0010 ns |     ? |      39 B |
+|    `SteppedRangeForeach` |         1 |   0.0051 ns | 0.0022 ns |     ? |      39 B |
+| `EnumerableRangeForeach` |         1 |   7.2937 ns | 0.1077 ns |     ? |     593 B |
+|                          |           |             |           |       |           |
+|             `CounterFor` |         3 |   0.4622 ns | 0.0033 ns |  1.00 |      20 B |
+|           `RangeForeach` |         3 |   0.4623 ns | 0.0011 ns |  1.00 |      39 B |
+|    `SteppedRangeForeach` |         3 |   0.4639 ns | 0.0034 ns |  1.00 |      39 B |
+| `EnumerableRangeForeach` |         3 |   9.4142 ns | 0.1430 ns | 20.37 |     644 B |
+|                          |           |             |           |       |           |
+|             `CounterFor` |        10 |   2.1077 ns | 0.0098 ns |  1.00 |      20 B |
+|           `RangeForeach` |        10 |   2.1039 ns | 0.0019 ns |  1.00 |      39 B |
+|    `SteppedRangeForeach` |        10 |   2.1064 ns | 0.0055 ns |  1.00 |      39 B |
+| `EnumerableRangeForeach` |        10 |  14.0306 ns | 0.0623 ns |  6.66 |     644 B |
+|                          |           |             |           |       |           |
+|             `CounterFor` |       100 |  26.3959 ns | 0.0289 ns |  1.00 |      20 B |
+|           `RangeForeach` |       100 |  27.8959 ns | 0.0137 ns |  1.06 |      39 B |
+|    `SteppedRangeForeach` |       100 |  27.9739 ns | 0.0267 ns |  1.06 |      39 B |
+| `EnumerableRangeForeach` |       100 |  64.2927 ns | 0.4154 ns |  2.44 |     644 B |
+|                          |           |             |           |       |           |
+|             `CounterFor` |      1000 | 230.8943 ns | 0.1496 ns |  1.00 |      20 B |
+|           `RangeForeach` |      1000 | 235.6411 ns | 0.1965 ns |  1.02 |      39 B |
+|    `SteppedRangeForeach` |      1000 | 235.9903 ns | 0.3364 ns |  1.02 |      39 B |
+| `EnumerableRangeForeach` |      1000 | 513.7996 ns | 1.7926 ns |  2.23 |     644 B |
