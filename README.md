@@ -4,7 +4,7 @@ Provides the range-foreach syntax for **C# 9.0 or higher**.
 
 Supported frameworks:
 
-* .NET Framework >= 2.0
+* .NET Framework >= 3.5
 * .NET Core >= 1.0
 * .NET Standard >= 1.0
 
