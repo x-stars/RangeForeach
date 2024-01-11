@@ -58,10 +58,10 @@ This syntax requires the `System.Range` type (and also the `System.Index` type).
 Considering that early frameworks do not provide this type, this project includes the polyfill source.
 
 If a third party package that includes the `System.Range` type (such as `IndexRange`, etc.) is referenced,
-define the `INDEX_RANGE` constant in the project file to avoid duplicate definitions:
+define the `INDEX_RANGE_EXTERNAL` constant in the project file to avoid duplicate definitions:
 
 ``` XML
-<DefineConstants>$(DefineConstants);INDEX_RANGE</DefineConstants>
+<DefineConstants>$(DefineConstants);INDEX_RANGE_EXTERNAL</DefineConstants>
 ```
 
 ## Performance Benchmark
