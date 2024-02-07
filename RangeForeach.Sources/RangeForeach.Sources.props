@@ -7,19 +7,22 @@
 
   <ItemGroup>
     <None Update="@(None)">
-      <Visible Condition="'%(NuGetItemType)'=='None' And
-                          '%(NuGetPackageId)'=='RangeForeach.Sources'"
-      >false</Visible>
+      <Visible Condition="
+        '%(NuGetItemType)'=='None' And
+        '%(NuGetPackageId)'=='RangeForeach.Sources'
+      ">false</Visible>
     </None>
     <Compile Update="@(Compile)">
-      <Visible Condition="'%(NuGetItemType)'=='Compile' And
-                          '%(NuGetPackageId)'=='RangeForeach.Sources'"
-      >false</Visible>
+      <Visible Condition="
+        '%(NuGetItemType)'=='Compile' And
+        '%(NuGetPackageId)'=='RangeForeach.Sources'
+      ">false</Visible>
     </Compile>
     <EmbeddedResource Update="@(EmbeddedResource)">
-      <Visible Condition="'%(NuGetItemType)'=='EmbeddedResource' And
-                          '%(NuGetPackageId)'=='RangeForeach.Sources'"
-      >false</Visible>
+      <Visible Condition="
+        '%(NuGetItemType)'=='EmbeddedResource' And
+        '%(NuGetPackageId)'=='RangeForeach.Sources'
+      ">false</Visible>
     </EmbeddedResource>
   </ItemGroup>
 
