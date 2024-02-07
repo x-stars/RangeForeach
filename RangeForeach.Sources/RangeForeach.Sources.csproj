@@ -43,10 +43,6 @@
       <Pack>true</Pack>
       <PackagePath>contentFiles\cs\any\</PackagePath>
     </Compile>
-    <EmbeddedResource Update="@(EmbeddedResource)">
-      <Pack>true</Pack>
-      <PackagePath>contentFiles\any\any\</PackagePath>
-    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

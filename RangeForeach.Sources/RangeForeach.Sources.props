@@ -18,12 +18,6 @@
         '%(NuGetPackageId)'=='RangeForeach.Sources'
       ">false</Visible>
     </Compile>
-    <EmbeddedResource Update="@(EmbeddedResource)">
-      <Visible Condition="
-        '%(NuGetItemType)'=='EmbeddedResource' And
-        '%(NuGetPackageId)'=='RangeForeach.Sources'
-      ">false</Visible>
-    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
