@@ -12,7 +12,7 @@ Supported frameworks:
 
 Reference source files or the NuGet package to write foreach loops like this:
 
-``` CSharp
+``` csharp
 foreach (var index in 0..100)
 {
     // loop body...
@@ -21,7 +21,7 @@ foreach (var index in 0..100)
 
 which is equivalent to the legacy for loop below:
 
-``` CSharp
+``` csharp
 for (int index = 0; index < 100; index++)
 {
     // loop body...
@@ -36,7 +36,7 @@ for (int index = 0; index < 100; index++)
 
 Use the `Step` method to write foreach loops like this:
 
-``` CSharp
+``` csharp
 foreach (var index in (99..^1).Step(-2))
 {
     // loop body...
@@ -45,7 +45,7 @@ foreach (var index in (99..^1).Step(-2))
 
 which is equivalent to the legacy for loop below:
 
-``` CSharp
+``` csharp
 for (int index = 99; index > -1; index -= 2)
 {
     // loop body...
@@ -60,13 +60,13 @@ Considering that early frameworks do not provide this type, this project include
 If a third party package that includes the `System.Range` type (such as `IndexRange`, etc.) is referenced,
 define the `INDEX_RANGE_EXTERNAL` constant in the project file to avoid duplicate definitions:
 
-``` XML
+``` xml
 <DefineConstants>$(DefineConstants);INDEX_RANGE_EXTERNAL</DefineConstants>
 ```
 
 ## Performance Benchmark
 
-``` PlainText
+``` plaintext
 BenchmarkDotNet v0.13.10, Windows 11 (10.0.22631.2792/23H2/2023Update/SunValley3)
 AMD Ryzen 7 5800H with Radeon Graphics, 1 CPU, 16 logical and 8 physical cores
 .NET SDK 8.0.100
