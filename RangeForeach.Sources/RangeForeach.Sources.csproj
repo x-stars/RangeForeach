@@ -7,6 +7,7 @@
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <CheckNotRecommendedTargetFramework>false</CheckNotRecommendedTargetFramework>
   </PropertyGroup>
 
   <Import Project="..\BuildItems\AssemblyInfo.Build.props" />
@@ -23,8 +24,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <NoWarn>CS8021</NoWarn>
-    <NoBuild>true</NoBuild>
+    <NoWarn>$(NoWarn);CS8021</NoWarn>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ContentTargetFolders>contentFiles</ContentTargetFolders>
     <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
